@@ -1,0 +1,67 @@
+extends ../layout.pug
+
+append css
+    link(rel="stylesheet", href="/css/admin/userinfo.css")
+append js
+    script(src='/validation/jquery.validate.min.js')
+    script(src='/js/admin/userinfo.js')
+block content
+
+    include ../include/nav.pug
+    .container
+        .row
+                nav.col-md-3.col-xl-2.d-none.d-md-block.bg-light.sidebar
+                    .sidebar-sticky
+                        ul.nav.flex-column
+                            li.nav-item
+                                a.nav-link.active(href='/admin/userinfo')
+                                    i.fas.fa-file-alt.mr-2
+                                    span 修改个人资料
+                            li.nav-item.mt-4
+                                a.nav-link.active(href='/admin/password')
+                                    i.fas.fa-key.mr-2
+                                    span 修改登录密码
+                            li.nav-item.mt-4
+                                a.nav-link.active(href='/admin/portrait')
+                                    i.fas.fa-user.mr-2
+                                    span 更换个人头像
+                            li.nav-item.mt-4
+                                a.nav-link.active(href='/admin/category')
+                                    i.fas.fa-money-check.mr-2
+                                    span 博客分类管理
+                            li.nav-item.mt-4
+                                a.nav-link.active(href='/admin/publish')
+                                    i.fas.fa-plus-square.mr-2
+                                    span 发表个人博客
+                            li.nav-item.mt-4
+                                a.nav-link.active(href='/admin/bloglist')
+                                    i.fas.fa-print.mr-2
+                                    span 博客列表管理
+                main.col-xl-10.col-md-9.col-md-auto(role='main')
+                    nav(aria-label='breadcrumb')   
+                        ol.breadcrumb
+                            li.breadcrumb-item
+                                a(href="#") 个人微博
+                            li.breadcrumb-item
+                                a(href="#") 个人中心
+                            li.breadcrumb-item.active(aria-current='page') 个人资料
+                    form#infoForm(action='/admin/modifyInfo',method='post')
+                        .form-group
+                            label(for='nickname') 昵称
+                            input.form-control(type='text',id='nickname',name='nickname',placeholder='请输入昵称',value=user.nickname)
+                        .form-group
+                            label(for='email') 邮箱
+                            input.form-control(type='email',id='email',name='email',placeholder='请输入邮箱',value=user.email)
+                        .form-group
+                            label(for='intro') 个人简介
+                            textarea.form-control(name='intro',id='intro',cols='30',rows='3',placeholder='请完善你的简介')= user.intro
+                        .form-group
+                            button#ensure(class=['btn','btn-primary','mt-3'],type='submit') 确定
+                            
+
+
+    footer.container-fluid.bg-dark
+        .row
+            .col-md-12   
+                p.text-white-50.text-center &copy; 个人博客 |  沪ICP备888888888号       
+                       

@@ -1,0 +1,32 @@
+extends ../layout.pug
+  
+append css
+    link(rel="stylesheet", href="/css/admin/register.css")
+append js
+    script(src='/validation/jquery.validate.min.js')
+    script(src='/js/admin/register.js')
+block content 
+    .reg-bg
+        .container 
+            .row.justify-content-center.mt10
+                .col-md-6
+                    .card
+                        .card-body
+                            h3.text-center  欢迎注册账号
+                        form#registerForm
+                            .form-group.mx-4.my-4
+                                input#username(name='username',class='form-control',type='text',placeholder='用户名以英文开头，且长度为6-16个字符',data-container='body',data-toggle='popover',data-placement='right',data-content='用户名不符合要求')
+                            .form-group.mx-4.my-4
+                                input#password(name='password',class='form-control',type='password',placeholder='密码以英文开头，且长度为6-16个字符',data-container='body',data-toggle='popover',data-placement='right',data-content='密码不符合要求')
+                            .form-group.mx-4.my-4
+                                input#repassword(name='repassword',class='form-control',type='password',placeholder='再次输入',data-container='body',data-toggle='popover',data-placement='right',data-content='确认密码不符合要求')
+                            .form-group.row.mx-4.no-gutters.my-4
+                                .col-sm-9
+                                    input#code(name='code',class=['form-control','mt-1'],type='text',placeholder='验证码，注意大小写!')
+                                .col-sm-3(id='captcha',data-container='body',data-toggle='popover',data-placement='right',data-content='验证码不符合要求') 
+                            .form-group.mx-4.my-4
+                                button#reg(type='submit',class=['btn','btn-success','btn-block','btn-lg']) 注册
+                        .card-body
+                            | 已有账号，
+                            a(href="/admin/login" class=['card-link','ml-2']) 直接登录
+

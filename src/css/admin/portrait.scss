@@ -1,0 +1,74 @@
+@import "../include/nav";
+@import "../include/common";
+@import "../include/footer";
+
+
+// 左侧导航部分   
+.container {
+  /*  font-size: 14px; */
+}
+
+.sidebar-sticky {
+  position: sticky;
+  top: 0;
+  height: calc(82vh - 48px); //将底部固定
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+main {
+  img.rounded-circle {
+    width: 8.125rem;
+    height: 8.125rem;
+  }
+
+  .img-container {
+    height: 22.75rem;
+    width: 100%;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .25);
+    background-color: #fcfcfc;
+    overflow: hidden;
+  }
+
+  .img-preview {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+  }
+
+  .preview-lg {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .preview-md {
+    width: 6.25rem;
+    height: 6.25rem;
+  }
+
+  .preview-sm {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  #image {
+    max-width: 100%;
+  }
+
+  .yanse {
+    color: crimson;
+  }
+
+  .something {
+    margin-top: 60px;
+  }
+
+  .something li {
+    list-style: none
+  }
+
+
+
+}

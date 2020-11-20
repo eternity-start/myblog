@@ -1,0 +1,18 @@
+doctype html
+//- 存放公共样式
+html(lang='en')
+  head
+    meta(charset='UTF-8')  
+    meta(name='viewport', content='width=device-width')
+    title= title
+    block css
+      link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+      link(rel='stylesheet', href='/fontawesome/css/all.min.css')
+      //- 必须先jq再block js
+    script(src="/jquery/jquery.min.js")
+    script(src="/bootstrap/js/bootstrap.bundle.min.js")
+    block js
+      if ENV_DEVELOPMENT
+        script(src='http://localhost:35729/livereload.js')
+  body
+    block content

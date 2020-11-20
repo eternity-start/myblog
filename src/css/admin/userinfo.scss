@@ -1,0 +1,15 @@
+@import "../include/nav";
+@import "../include/common";
+@import "../include/footer";
+
+
+// 左侧导航部分
+
+.sidebar-sticky {
+  position: sticky;
+  top: 0;
+  height: calc(82vh - 48px); //将底部固定
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}

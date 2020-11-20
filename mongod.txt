@@ -1,0 +1,82 @@
+1:博客表   谁写的  
+2:作者表
+3:评论表
+4:分类表
+extends ../layout
+
+append css
+  link(rel="stylesheet", href="/css/blog/detail.css")
+block content
+  include ../include/nav.pug  
+  .container  
+    .row
+      .col-lg-3
+        .card.border-0
+          .card-body
+            .list-group
+              section.d-block.text-center
+                img.rounded.rounded-circle.header-pic(src=author.portrait)
+                p.mt-2=author.nickname
+              table.table.mt-3
+                tbody
+                  tr
+                    td 共有字数
+                    td= author.wordCount
+                      | 千字
+                  tr  
+                    td 博客数量
+                    td=author.articleCount
+                      | 篇
+                  tr 
+                    td 访问量
+                    td=author.visitedCount
+        .card.dev-card
+            .card-header.bg-dark.text-light.text-center 相关博客
+            .card-body
+              ul.list-group.list-group-flush
+                each article in articles
+                  li.list-group-item
+                    a.card-link(href=`/blog/detail/${article._id}`)=article.title
+      div.col-lg-9      
+        main.d-block
+          nav(aria-label='breadcrumb')
+            ol.breadcrumb
+              li.breadcrumb-item
+                a(href="#") 个人微博
+              li.breadcrumb-item
+                a(href="#") 主页
+              li.breadcrumb-item.active(aria-current='page') 博文
+          main.d-block
+            header.d-block.text-center
+              h2.text-center=article.title
+              span 作者：
+                a(href='#')= article.author.nickname
+              time.ml-3(datetime= moment(article.publishTime).format('YYYY年MM月DD日'), pubdate= moment(article.publishTime).format('YYYY年MM月DD日'))= moment(article.publishTime).format('YYYY年MM月DD日')
+              span.ml-3 阅读 (
+                = article.reading
+                | )
+            section.d-block.mt-5
+              h5 摘要
+              p=article.summary
+            section.d-block
+              p=article.content
+            section.d-block.mt-5.copyright
+              span &copy; 著作权归番茄
+            section.d-block.mt-3
+              .card
+                .card-header 评论
+                .card-body
+                  form.mb-3.pb-2.text-right
+                    textarea#commentText(class='form-control', row=3, placeholder='请登入再评论', disabled='true')
+                    button(class=['btn','btn-primary','mt-2'], type='submit',disabled='true') 确定
+                  ul.list-unstyled
+                    each comment in comments
+                      li.media
+                        img.rounded.rounded-circle(src='/img/person.jpg')
+                        .media-body
+                          p.ml-2.comment-user=comment.poster.nickname
+                          p.ml-2.comment-content=comment.text
+                          time.ml-2(datetime=moment(article.publishTime).format('YYYY年MM月DD日'),pubdate=moment(article.publishTime).format('YYYY年MM月DD日'))= moment(article.publishTime).format('YYYY年MM月DD日')
+                        
+
+  include ../include/footer.pug

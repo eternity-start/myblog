@@ -1,0 +1,100 @@
+// body{
+//   color: #505050;
+//   line-height: 1.75rem;
+//   font-size: 0.875rem;
+//   font-family: '微软雅黑';
+// }
+
+@import "../include/nav";
+@import "../include/common";
+@import "../include/footer";
+
+
+// 主体
+.content {
+
+
+  a {
+    color: pink;
+    background-color: transparent;
+    overflow: hidden;
+
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:link {
+      text-decoration: none;
+    }
+  }
+
+  p {
+    font-size: 0.900rem;
+    overflow: hidden;
+    margin-bottom: 5px;
+  }
+
+  i {
+    font-size: 0.800rem;
+    overflow: hidden;
+    margin-right: 0.45rem;
+  }
+
+  span,
+  time {
+    font-size: 0.800rem;
+    color: #5f6f6f;
+    overflow: hidden;
+  }
+
+  ul.list-unstyle {
+    li.media {
+      padding-bottom: 0.52rem;
+      border-bottom: 1px solid pink;
+
+      img.rounded-circle {
+        width: 3.125rem;
+        height: 3.125rem;
+      }
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0.2rem;
+      }
+    }
+
+  }
+
+}
+
+/* 
+ */
+aside {
+
+  // .notice-card{
+  //   .notice-header{
+  //     border-left: 3px solid salmon;
+  //   }
+  // }
+  .dev-card {
+    .card-body {
+      padding: 0;
+    }
+  }
+
+  .qqq{
+    z-index: 999;
+
+  }
+
+  img.money {
+    width: 10.125rem;
+    height: 5.5rem;
+  }
+
+  img.money:hover {
+    transform: scale(1.8);
+    transition: all 0.4s;
+  }
+
+}

@@ -1,0 +1,31 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    .container
+      a.navbar-brand(href='/blog/index') 个人博客
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon 
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link.ml-2(href='/blog/index') 首页
+          li.nav-item
+            a.nav-link.ml-2.mr-2(href='#') 好友
+          li.nav-item
+            a.nav-link(href='#') 动态
+          li.nav-item
+            a.nav-link.ml-2.mr-2(href='#') 收藏
+          li.nav-item
+            a.nav-link(href='#') 我的空间
+        ul.navbar-nav
+          li.nav-item.mx-2
+            .input-group
+              
+          if (!user)
+            li.nav-item.mx-2
+              a.nav-link(href='/admin/login') 登入
+            li.nav-item.mx-1
+              a.nav-link(href='/admin/register') 注册
+          else
+            li.nav-item.mx-2
+              a.nav-link(href='/admin/userinfo') 管理中心
+            li.nav-item.mx-1
+              a.nav-link(href='/admin/logout') 退出
